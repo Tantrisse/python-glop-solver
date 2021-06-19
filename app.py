@@ -6,9 +6,6 @@ from glop_solver import solve_problem
 
 app = Flask(__name__)
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=os.getenv('PORT'))
-
 
 @app.route('/', methods=['GET'])
 def index():
@@ -26,3 +23,7 @@ def solve():
     solution = solve_problem(objectives, constraints)
     # print('solution : %s' % solution)
     return jsonify({'message': 'OK', 'status': 200, 'data': solution})
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=os.getenv('PORT'))
